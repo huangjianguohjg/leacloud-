@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, ‘8.0’
+
+target 'yunshuchuang' do
+  
+pod ‘Masonry’
+pod 'SDWebImage', '~> 4.0.0'
+pod 'AFNetworking'
+pod 'SVProgressHUD', '~> 2.0.3'
+pod 'ReactiveCocoa','~>2.5'
+pod 'MJRefresh'
+pod 'IQKeyboardManager'#, '~> 4.0.8'
+pod 'MJExtension'
+# pod 'MLeaksFinder'
+pod 'Toast'
+pod 'BRPickerView', '~> 2.2.1'
+pod 'YPTabBarController', '~> 2.4.4' 
+pod 'PPNetworkHelper', '~> 0.8.0'
+pod 'BANetManager', '~> 2.3.9'
+pod 'GKPhotoBrowser', '~> 1.2.3'
+pod 'GKCover', '~>2.4.9'
+pod 'CYNavigation', '~>1.1.0'
+pod 'MBProgressHUD'
+end

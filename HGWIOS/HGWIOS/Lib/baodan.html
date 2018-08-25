@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="gb2312">
+	<meta name="viewport" content="width=device-width, initial-scale=1, max-scale:1,min-scale:1">
+    <title>保单详情</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-size: 13px;
+        }
+
+        input {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul ul, li {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .insurance_kuangjia {
+		width:635px;
+            margin: auto;
+            height: auto;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .insurance_kuangjia table tr td {
+            border-right: 1px solid #000000;
+        }
+
+        .insurance_kuangjia table tr td:nth-child(3) {
+            border-right: none;
+        }
+
+        .insurance_kuangjia table tr:nth-child(5) td {
+            border-collapse: collapse;
+            border-bottom: 1px solid #000000;
+            border-right: none;
+            vertical-align: top;
+        }
+
+        .insurance_kuangjia table tr:nth-child(6) td {
+            border-collapse: collapse;
+            border-bottom: none;
+            border-right: none;
+            vertical-align: top;
+        }
+
+        .insurance_kuangjia table tr td {
+            border-collapse: collapse;
+            border-bottom: 2px solid #000000;
+        }
+
+        .border_mo {
+            border-bottom: 1px solid #000000;
+        }
+
+        .border_a {
+            border: 1px solid #000000;
+        }
+
+        .input_co {
+            width: 100%;
+            border: 0px solid #fff;
+            outline: none;
+        }
+
+        .link_bd {
+            text-align: center;
+            background: #b2b2b2;
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: #fff;
+            float: right;
+        }
+
+        .back {
+            float: right;
+            cursor: pointer;
+            color: #09F;
+        }
+
+        .link_bd:active {
+            opacity: 0.7;
+        }
+
+        .link_bd a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .margin_28 {
+            margin: auto;
+            width: 28px;
+        }
+
+        #divLoc {
+            width: 100%;
+            height: 18px;
+            overflow: hidden;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            $("input").attr("readOnly", true);
+            $("textarea").attr("readOnly", true);
+		  });
+		
+		function WriteContent(policyNoLong, holderName, recognizeeName, goodsName, goodsPackQty, goodsPackUnit, shipName, fromLoc, toLoc, departureDateCode, mianPei,totalFeeCapital, totalFee,insuredAmountFeeCapital, insuredAmountFee,way_bill_no,c_time,yueDing){
+			$("#policyNoLong").text("保险单号："+policyNoLong);
+			$("#holderName").val(holderName);
+			$("#recognizeeName").val(recognizeeName);
+			$("#goodsName").val(goodsName);
+			$("#goodspck").val(goodsPackQty +goodsPackUnit);
+			$("#shipName").html(shipName);
+			$("#divLoc").html("起运地：&nbsp;"+fromLoc+"   &nbsp;&nbsp;&nbsp;  中转地：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      目的地：&nbsp;"+toLoc);
+			$("#departureDateCode").val(departureDateCode);
+			$("#mianPei").val(mianPei);
+			$("#totalFeeCapital").val(totalFeeCapital);
+			$("#totalFee").val("(RMB "+totalFee+")");
+			$("#insuredAmountFee").val("(RMB "+insuredAmountFee+")");
+			$("#insuredAmountFeeCapital").val(insuredAmountFeeCapital);
+			$("#way_bill_no").val(way_bill_no);
+			$("#c_time").html(c_time);
+			$("#yueDing").html(yueDing);
+		}
+    </script>
+</head>
+
+<body>
+<div class="insurance_kuangjia" style="margin-top:15px;">
+    <div class="f_bold left">国内货物运输保险<span class="pleft_5">保险单</span><span class="pleft_5">（正本）</span></div>
+
+    <div class="pright_20 clear right" id="policyNoLong">保险单号：</div>
+</div>
+<div class="clear insurance_kuangjia border_a">
+    <table width="635" class="line_ht18" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="45" height="100" class="f_bold text_ac">
+                <div class="margin_28">投保人被保险人信息</div>
+            </td>
+            <td width="130">
+                <div class="border_mo pleft_5" >投保人信息</div>
+                <div class="border_mo pleft_5" >被保险人信息</div>
+                <div class="border_mo pleft_5">被保险人身份证号</div>
+                <div class="border_mo pleft_5">被保险人电话</div>
+                <div class="pleft_5">被保险人机构代码</div>
+            </td>
+            <td>
+                <div class="border_mo">
+                    <input type="text" class="input_co" value="" id="holderName">
+                </div>
+                <div class="border_mo">
+                    <input type="text" class="input_co" value="" id="recognizeeName">
+                </div>
+                <div class="border_mo">
+                    <input type="text" class="input_co" value="">
+                </div>
+                <div class="border_mo">
+                    <input type="text" class="input_co" value="">
+                </div>
+                <div>
+                    <input type="text" class="input_co" value="">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="45" height="80" class="f_bold text_ac">
+                <div class="margin_28">保险标的信息</div>
+            </td>
+            <td width="130">
+                <div class="border_mo pleft_5" style="height:22px;">保险标的名称</div>
+                <div class="border_mo pleft_5" style="height:22px;">数量/重量/包装</div>
+                <div class="border_mo pleft_5" style="height:22px;">发票/合同号码</div>
+                <div class="pleft_5" style="height:22px;">运单/提单/货票号码</div>
+            </td>
+            <td>
+                <div class="border_mo" style="height:22px;">
+                    <input type="text" class="input_co" value="" id="goodsName">
+                </div>
+                <div class="border_mo" style="height:22px;"><span>包装及数量：</span>
+                    <input type="text" class="wid_10 b_none" id="goodspck"
+                           value="">
+                    <span></span><span class="pleft_30">重量：</span>
+                    <input type="text" class="b_none" value="">
+                </div>
+                <div class="border_mo" style="height:22px;">
+                    <input type="text" class="input_co" value=" ">
+                </div>
+                <div style="height:22px;">
+                    <input type="text" class="input_co" value="" id="way_bill_no">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="45" height="160" class="f_bold text_ac">
+                <div class="margin_28">运输信息</div>
+            </td>
+            <td width="130">
+                <div class="border_mo pleft_5" style="height:22px;">运输方式</div>
+                <div class="border_mo pleft_5" style="height:22px;">集装箱运输</div>
+                <div class="border_mo pleft_5 mtop_35 height_45" style="height:45px;">运输工具信息</div>
+                <div class="border_mo pleft_5" style="height:22px;">运输路线</div>
+                <div class="pleft_5" style="height:22px;">启运时间</div>
+            </td>
+            <td>
+                <div class="border_mo" style="height:22px;">
+                    <input type="text" class="input_co" value="水运">
+                </div>
+                <div class="border_mo" style="height:22px;">
+                    <input type="text" class="input_co" value="">
+                </div>
+                <div class="border_mo mtop_35 height_45" style="height:45px;">
+                    <div class="wid_100 input_co" id="shipName"></div>
+                    <!--<input type="text" class="input_co wid_100" value="">-->
+                </div>
+                <div class="border_mo" id="divLoc" style="height:22px;">
+                    起运地：　　
+                    中转地：　
+                    目的地：                </div>
+                <div style="height:22px;">
+                    <input type="text" class="input_co" value="1970-01-01  8时" id="departureDateCode">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="45" height="210" class="f_bold text_ac">
+                <div class="margin_28">承保信息</div>
+            </td>
+            <td width="130">
+                <div class="border_mo pleft_5 mtop_20 height_40" style="height:40px;">适用条款及险别</div>
+                <div class="border_mo pleft_5 mtop_35 height_45" style="height:45px;">特别约定</div>
+                <div class="border_mo pleft_5" style="height:22px;">总保险金额</div>
+                <div class="border_mo pleft_5" style="height:22px;">总保险费</div>
+                <div class="pleft_5" style="height:22px;">争议解决方式</div>
+            </td>
+            <td>
+                <div class="border_mo mtop_10 height_50" style="height:40px;"> 
+                    <span>主险：</span><input type="text" class="b_none wid_90" value="国内水路货运保险综合保险"></br>
+                    <span>附加险：</span><input type="text" class="b_none wid_85" value="">
+                </div>
+                <div class="border_mo mtop_22" style="height:60px;">
+                    <span>特别约定：</span>
+					<span type="text" class="b_none wid_85" id="yueDing"></span>
+					</br>
+                    <span>绝对免赔率：</span>
+					<input type="text" class="b_none wid_80" class="" value="" id="mianPei">
+                </div>
+                <div class="border_mo" style="height:22px;">
+                    <span>（人民币）</span>
+                    <input type="text" class="b_none wid_30" value="" id="totalFeeCapital">
+                    <input type="text" class="b_none wid_30 mleft_40" value="（RMB ）" id="totalFee">
+                </div>
+                <div class="border_mo" style="height:22px;">
+                    <span>（人民币）</span>
+                    <input type="text" class="b_none wid_30" value="" id="insuredAmountFeeCapital">
+                    <input type="text" class="b_none wid_30 mleft_40" value="（RMB ）" id="insuredAmountFee">
+                </div>
+                <div style="height:22px;">
+                    <input type="text" class="input_co" value="">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td height="125" colspan="3" class="f_bold fs_14px">
+                <div style="text-indent:2em;">
+                    投保人声明：保险人已向本人提供并详细介绍了本保险所适用的条款，并对其中免除保险人责任的条款（包括但不限于责任免除、投保人被保险人义务、赔偿处理、其他事项等），以及本保险合同中付费约定和特别约定的内容向本人做了明确说明，本人已充分理解并接受上述内容，
+                    同意以此作为订立保险合同的依据，自愿投保本保险。上述所填写的内容均属实。
+                </div>
+                <div class="ptop_42 pleft_300">投保人签名/签章：</div>
+                <div class="ptop_18 pleft_420 pbottom_5"><span><span>年<span><span class="pleft_15">月<span><span
+                        class="pleft_15">日<span><span class="pleft_15">时</div>
+            </td>
+        </tr>
+        <tr>
+            <td height="85" colspan="3" class="f_bold fs_14px">
+                <div class="ptop_42 pbottom_5 pleft_350 f_normal">保险人签章：</div>
+                <div class="ptop_18 pbottom_5 pleft_350 f_normal">签单日期：<span class="letter_2" id="c_time">1970年01月01日</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="right b_none mtop_165t pright_28"><img src="gongzhang.png" width="190" height="176"></div>
+</div>
+<div class="insurance_kuangjia" style="margin-bottom:15px;">
+    <div class=" ptop_18 f_bold" style="white-space:nowrap;font-size:9px;">尊敬的客户：您可通过本公司95518客服电话查询保险单信息和报案，保险服务还可联系：</div>
+    <div style="font-size:9px;">名称：<span>中国人民财产保险股份有限公司江苏分公司</span><span class="right pright_10">电话：025-95518</span></div>
+    <div style="font-size:9px;">地址：<span>江苏省南京市长江路69号保险大厦17层</span><span class="pleft_40">邮编：210005</span><span class="right pright_10">传真：025-68185654</span>
+    </div>
+</div>
+
+</body>
+</html>

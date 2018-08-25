@@ -1,0 +1,89 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - BANetManager (2.3.9):
+    - AFNetworking
+    - YYCache
+  - BRPickerView (2.2.1)
+  - CYNavigation (1.1.0)
+  - GKCover (2.4.9)
+  - GKPhotoBrowser (1.2.3):
+    - SDWebImage
+  - IQKeyboardManager (6.0.3)
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.1.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.15.3)
+  - PPNetworkHelper (0.8.1):
+    - AFNetworking (~> 3.2.0)
+    - YYCache (~> 1.0.4)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - SVProgressHUD (2.0.4)
+  - Toast (4.0.0)
+  - YPTabBarController (2.4.6)
+  - YYCache (1.0.4)
+
+DEPENDENCIES:
+  - AFNetworking
+  - BANetManager (~> 2.3.9)
+  - BRPickerView (~> 2.2.1)
+  - CYNavigation (~> 1.1.0)
+  - GKCover (~> 2.4.9)
+  - GKPhotoBrowser (~> 1.2.3)
+  - IQKeyboardManager
+  - Masonry
+  - MBProgressHUD
+  - MJExtension
+  - MJRefresh
+  - PPNetworkHelper (~> 0.8.0)
+  - ReactiveCocoa (~> 2.5)
+  - SDWebImage (~> 4.0.0)
+  - SVProgressHUD (~> 2.0.3)
+  - Toast
+  - YPTabBarController (~> 2.4.4)
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  BANetManager: f05bfc4deb712395a89cdc2d530f9c26c76ea939
+  BRPickerView: 0590a8c5de9bd98c6b4e4f117a3dff6de287d5b2
+  CYNavigation: d4124a2f97f9286fe43df82f96c169a0baf4b16b
+  GKCover: 2b4d7798a5b5285da991a8a2a6d222c00ccc82a0
+  GKPhotoBrowser: 7b576c8823a2b59c5b75a328ae01e92bb7fa754d
+  IQKeyboardManager: c390e612f4b98c8fd748016470138537dc163ead
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  PPNetworkHelper: e893191a73665e9c496c2887fd5ceece9e930bb8
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  YPTabBarController: 600834b44971d84a6f070efa1f1dfec537c24fa5
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+
+PODFILE CHECKSUM: e54890072026342bae40a6645847b3fbcd8de7d7
+
+COCOAPODS: 1.3.1

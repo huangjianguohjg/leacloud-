@@ -1,0 +1,612 @@
+//
+//  PrefixHeader.pch
+//  HGWIOS
+//
+//  Created by mac on 2018/5/14.
+//  Copyright © 2018年 Developer. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#endif /* PrefixHeader_pch */
+
+
+
+//----------------------ABOUT PRINTING LOG 打印日志 ----------------------------
+//Using dlog to print while in debug model.        调试状态下打印日志
+#ifdef DEBUG
+#   define XXJLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#else
+#   define XXJLog(...)
+#endif
+
+
+//----------------------全局导入----------------------------
+//这个宏加上后，可以去掉'mas_'这个前缀了
+#define MAS_SHORTHAND
+//这个宏加上后，可以去掉自动包装方法的'mas_'前缀
+#define MAS_SHORTHAND_GLOBALS
+//注意，这两个宏必须定义在这个头文件的上面，因为"Masonry.h"中要用到上面2个宏，如果已经定义过了的话
+
+//三方
+#import <Masonry.h>
+#import <UIImageView+WebCache.h>
+#import <IQKeyboardManager.h>
+#import <MJRefresh.h>
+#import <MJExtension.h>
+#import <SVProgressHUD.h>
+#import <Toast.h>
+#import <PPNetworkHelper.h>
+#import <AFNetworking.h>
+#import <BANetManager.h>
+#import <GKCover.h>
+//#import <JZNavigationExtension.h>
+
+
+
+//Base控制器
+#import "XXJNavgationController.h"
+#import "BaseViewController.h"
+
+//分类
+#import "UIView+ChangeSize.h"
+#import "UIButton+TagProperty.h"
+#import "UIButton+TYButton.h"
+#import "UIColor+ColorChange.h"
+#import "UILabel+XXJLableFit.h"
+#import "UIView+ChangeSize.h"
+#import "NSString+PhoneNumber.h"
+#import "UIImage+Color.h"
+#import "UIImage+Extend.h"
+#import "UIButton+Extend.h"
+
+//工具类
+#import "TYDateUtils.h"
+#import "XXJNetworkTools.h"
+#import "XXJNetManager.h"
+#import "HttpHelper.h"
+#import "UseInfo.h"
+#import "Crypt.h"
+#import "MD5.h"
+#import "GJCFStringUitil.h"
+#import "GJCFStringMacrocDefine.h"
+#import "CommonDimensStyle.h"
+#import "CommonFontColorStyle.h"
+#import "UIView+GJCFViewFrameUitil.h"
+#import "DataHelper.h"
+//#import "BaseHelper.h"
+#import "ArrayRepository.h"
+//#import "GJCFFileDownloadTask.h"
+//#import "GJCFFileDownloadManager.h"
+#import "LocationHelper.h"
+#import "LocalData.h"
+#import "LocalModel.h"
+#import "PhoneStyle.h"
+#import "GJCFQuickCacheUitil.h"
+#import "GJCFQuickCacheMacrocDefine.h"
+#import "GJCFDispatchCenterUitil.h"
+#import "GJCFDispatchMacrocDefine.h"
+
+
+
+#import <CoreTelephony/CTCallCenter.h>
+#import <CoreTelephony/CTCall.h>
+
+#import "UIView+Tool.h"
+#import "NSObject+Tool.h"
+//----------------------全局静态变量----------------------------
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define isIPHONEX [[UIApplication sharedApplication] statusBarFrame].size.height > 20?YES:NO
+
+#define kNavigationBarHeight 44
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kMarginTopHeight 64
+#define kTabBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 83:49
+
+
+
+
+//----------------------全局方法----------------------------
+#define W(float) [UIView setWidth:(float)]
+#define H(float) [UIView setHeight:(float)]
+
+#define realW(float) 0.5 * W(float)
+#define realH(float) 0.5 * H(float)
+#define realFontSize(float) 0.5 * float
+
+
+
+
+
+//----------------------用到的字体----------------------------
+#define PingFangSc_Light @"PingFangSC-Light"
+#define PingFangSc_Medium @"PingFangSC-Medium"
+#define PingFangSc_Regular @"PingFangSC-Regular"
+#define SourceSansPro_Boldlt @"SourceSansPro-Boldlt"
+#define CenturyGothic_Bold @"CenturyGothic-Bold"
+
+#define XXJColor(r,g,b) [UIColor colorWithRed:(r) / 256.0 green:(g) / 256.0 blue:(b) / 256.0 alpha:1]/***********随机颜色*************/
+
+//#undef HEX_RGBA
+//#define HEX_RGBA(V, A) [UIColor fromHexValue:V alpha:A]
+
+
+/*************************网络请求相关**************************/
+#define BaseURL @"http://www.e-huayun.com/zyhl/index.php/Api2/"
+
+//#define BaseURL @"http://49.4.64.39:9012/zyhl/index.php/Api2/"
+
+//手机短信
+#define PhoneCode [NSString stringWithFormat:@"%@MobileSms",BaseURL]
+#define PhoneCodeMethod @"send_login_valid_code"
+
+#define xxxxx [NSString stringWithFormat:@"%@MobileSms/send_login_valid_code",BaseURL]
+
+//电话反馈
+#define FeedBackURL [NSString stringWithFormat:@"%@AppLog",BaseURL]
+#define FeedBackMethod @"update_app_log_remark"
+
+//参数device ,access_token , channel,event(0 -> app启动 1->船盘 2->货盘 3->文章 4->船盘 5->货盘),error,obj
+#define AddAppLogMethod @"add_app_log"
+//获取反馈列表
+#define GetAppLogRemarkMethod @"get_app_log_remark"
+
+//登录
+#define LoginURL [NSString stringWithFormat:@"%@Auth",BaseURL]
+#define LoginURLMethod @"tel_login_or_register"
+
+
+//选择身份类型
+#define ChooseIdentity [NSString stringWithFormat:@"%@Auth",BaseURL]
+#define ChooseIdentityMethod @"upload_identity"
+
+//找货
+#define FindGoods [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define FindGoodsMethod @"get_yy_recommended_cargo_list"
+
+//货盘详情
+#define GoodDetail [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define GoodDetailMethod @"get_yy_cargo"
+
+//找船
+#define FindBoat [NSString stringWithFormat:@"%@Shipping",BaseURL]
+#define FindBoatMethod @"get_yy_recommended_shipping_list"
+
+//船盘详情
+#define BoatDetail [NSString stringWithFormat:@"%@Shipping",BaseURL]
+#define BoatDetailMothod @"get_yy_shipping"
+
+//刷新船盘
+#define BoatRefresh [NSString stringWithFormat:@"%@Shipping",BaseURL]
+#define BoatRefreshMethod @"refresh_shipping"
+//删除船舶
+#define BoatDelete [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define BoatDeleteMethod @"ship_delete"
+
+//删除船盘（报空的删除变为未报空）
+#define DeleteShipEmpty [NSString stringWithFormat:@"%@Shipping",BaseURL]
+#define DeleteShipEmptyMethod @"delete_shipping"
+
+//选择船舶
+#define SelelctShip [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define SelectShipMethod @"selectable_ship"
+
+//船主报价
+#define QuotePrice [NSString stringWithFormat:@"%@QuotePrice",BaseURL]
+#define QuotePriceMethod @"increase_quote_price"
+
+//添加船舶
+#define AddShip [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define AddShipMethod @"yy_add_ship"
+
+
+//船舶报空
+#define EmptyShip [NSString stringWithFormat:@"%@Shipping",BaseURL]
+#define EmptyShipMethod @"add_yy_shipping"
+
+
+//船舶类型
+#define ShipType [NSString stringWithFormat:@"%@Data",BaseURL]
+#define ShipTypeMethod @"get_ship_type_map"
+
+//检查类型
+#define CheckType [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define CheckTypeMethod @"inspect_ship_type"
+
+//上传图片
+#define UpLoadImage [NSString stringWithFormat:@"%@Media",BaseURL]
+#define UpLoadImageMethod @"upload"
+
+//我的船舶
+#define MyShip [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define MyShipMethod @"get_ship_list_with_shipping"
+
+//已报价
+//#define OfferList [NSString stringWithFormat:@"%@QuotePrice",BaseURL]
+//#define OfferListMethod @"offer_list"
+
+//取消报价
+#define CancelOffer [NSString stringWithFormat:@"%@QuotePrice",BaseURL]
+#define CancelOfferMethod @"cancel_yy_price"
+
+
+//删除报价
+#define DeleteOffer [NSString stringWithFormat:@"%@QuotePrice",BaseURL]
+#define DeleteOfferMethod @"del_yy_price"
+
+//关闭货盘
+#define Close [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define CloseMethod @"close_cargo"
+
+//删除船舶
+#define DeleteShip [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define DeleteShipMethod @"ship_delete"
+
+//清空历史记录
+#define clean_history @"clean_history"
+
+//货主关联船舶
+#define relation_ship @"relation_ship"
+
+//修改业务员
+#define ChangeContact [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define ChangeContactMethod @"change_contact"
+
+//获取省级列表
+#define GetProvince [NSString stringWithFormat:@"%@Data",BaseURL]
+#define GetProvinceMethod @"get_province_ports"
+
+//获取市级列表
+#define GetCity [NSString stringWithFormat:@"%@Data",BaseURL]
+#define GetCityMethod @"get_next_ports"
+
+//发布货盘
+#define PublishCargo [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define PublishCargoMethod @"add_yy_cargo"
+//修改货盘
+#define EditCargo @"edit_yy_cargo"
+
+//获取我的货物类型
+#define GetCagoList [NSString stringWithFormat:@"%@Data",BaseURL]
+#define GetCagoListMethod @"get_cargo_type_list"
+
+//获取运费组成列表(付款方式)
+#define GetFreight [NSString stringWithFormat:@"%@Data",BaseURL]
+#define GetFreightMethod @"get_freight_form_list"
+
+//获取包含费用
+#define ContainCargo [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define ContainCargoMethod @"contain_cargo"
+
+//我的货盘列表
+#define MyCargo [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define MyCargoMethod @"mycargo"
+
+//删除货盘
+#define DeleteCargo [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define DeleteCargoMethod @"delete_cargo"
+
+//刷新货盘
+#define RefreshCargo [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define RefreshCargoMethod @"refresh_cargo"
+
+//指定报价人
+#define AppointPrice [NSString stringWithFormat:@"%@QuotePrice",BaseURL]
+#define AppointPriceMethod @"appoint_price"
+
+//邀请报价人列表
+#define InvitationUser [NSString stringWithFormat:@"%@QuotePrice",BaseURL]
+#define InvitationUserMethod @"invitation_user"
+
+//查看报价列表
+#define OfferList [NSString stringWithFormat:@"%@QuotePrice",BaseURL]
+#define OfferListMethod @"offer_list"
+
+//选中报价生成运单
+#define SelectDeal [NSString stringWithFormat:@"%@Deal",BaseURL]
+#define SelectDealMethod @"select_to_setup_deal"
+
+//提交用户实名认证信息
+#define SubmitUserInfo [NSString stringWithFormat:@"%@UserAuth",BaseURL]
+#define SubmitUserInfoMethod @"submit_user_authentication_auto"
+
+//获取用户实名认证信息
+#define GetUserInfo [NSString stringWithFormat:@"%@UserAuth",BaseURL]
+#define GetUserInfoMethod @"get_users_authentication_auto"
+
+//提交用户企业认证信息
+#define SubmitCompanyInfo [NSString stringWithFormat:@"%@Enterprise",BaseURL]
+#define SubmitCompanyInfoMethod @"submit_enterprise_info"
+
+//获取用户企业认证信息
+#define GetCompanyInfo [NSString stringWithFormat:@"%@Enterprise",BaseURL]
+#define GetCompanyInfoMethod @"get_enterprise_info"
+
+//加入企业
+#define JoinCompany [NSString stringWithFormat:@"%@Enterprise",BaseURL]
+#define JoinCompanyMethod @"join_enterprise"
+
+//展示企业名称
+#define CompanyName [NSString stringWithFormat:@"%@Auth",BaseURL]
+#define CompanyNameMethod @"enterprise_name"
+
+//获取用户所有认证状态
+#define GetUserAllStatus [NSString stringWithFormat:@"%@User",BaseURL]
+#define GetUserAllStatusMethod @"get_user_all_auth_status"
+
+
+//获取加入企业认证状态
+#define GetCompanyStatus [NSString stringWithFormat:@"%@Enterprise",BaseURL]
+#define GetCompanyStatusMethod @"enterprise_auth_type"
+
+
+
+//获取我的信息
+#define GetUserAllInfo [NSString stringWithFormat:@"%@User",BaseURL]
+#define GetUserAllInfoMethod @"get_user_info"
+
+
+//用户信任值
+#define creditvalue @"creditvalue"
+
+
+//需企业管理员审批列表
+#define ApprovalList [NSString stringWithFormat:@"%@Enterprise",BaseURL]
+#define ApprovalListMethod @"approval"
+
+//通过申请企业
+#define AdoptCompany [NSString stringWithFormat:@"%@Enterprise",BaseURL]
+#define AdoptCompanyMethod @"adopt_enterprise"
+
+//驳回申请企业
+#define RejectCompany [NSString stringWithFormat:@"%@Enterprise",BaseURL]
+#define RejectCompanyMethod @"reject_enterprise"
+
+
+//获取我的运单
+#define GetTransport [NSString stringWithFormat:@"%@Deal",BaseURL]
+#define GetTransportMethod @"get_yy_deal_list"
+
+//运单详情
+#define TransportDetail [NSString stringWithFormat:@"%@Deal",BaseURL]
+#define TransportDetailMethod @"get_yy_deal_details"
+
+
+
+//获取银行卡列表
+#define BankList [NSString stringWithFormat:@"%@Account",BaseURL]
+#define BankListMethod @"get_bank_card_list_by_uid"
+
+//验证此银行是否被绑定
+#define BankBond [NSString stringWithFormat:@"%@Account",BaseURL]
+#define BankBondMethod @"is_exist_bank_card"
+
+//银行卡验证bank_card_verify
+#define CardVerify [NSString stringWithFormat:@"%@Account",BaseURL]
+#define CardVerifyMethod @"bank_card_verify"
+
+//绑定银行卡
+#define BondCard [NSString stringWithFormat:@"%@Account",BaseURL]
+#define BondCardMethod @"binding_bank_card"
+
+//解除绑定
+#define UnBondCard [NSString stringWithFormat:@"%@Account",BaseURL]
+#define UnBondCardMethod @"unbinding_bank_card"
+
+
+//关于我们
+#define AboutUS [NSString stringWithFormat:@"%@Content",BaseURL]
+#define AboutUSMethod @"get_list_by_catalog"
+
+
+//消息
+#define MessageCenter [NSString stringWithFormat:@"%@ContentCatalog",BaseURL]
+#define MessageCenterMethod @"get_catalog_list_with_app_list"
+
+//消息详情
+#define MessageDetail [NSString stringWithFormat:@"%@Content",BaseURL]
+#define MessageDetailMethod @"get_list_by_catalog"
+
+
+//获取交接方式
+#define HandType [NSString stringWithFormat:@"%@Cargo",BaseURL]
+#define HandTypeMethod @"hand_type"
+
+
+//服务
+//获取水位列表
+#define GetWeaterList [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define GetWeaterListMethod @"get_water_list"
+
+//获取水位详情
+#define GetWaterDetail [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define GetWaterDetailMethod @"get_water_info"
+
+//获取航道通道列表
+#define GetNoticeList [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define GetNoticeListMethod @"get_notice_list"
+#define GetNoticeDetailMethod @"get_content_info"
+
+//获取安全预警列表
+#define GetWarningList [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define GetWarningListMethod @"get_warning_list"
+#define GetWarningDetailMethod @"get_weather_info"
+
+//获取气象预告列表
+#define GetWeatherList [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define GetWeatherListMethod @"get_weather_list"
+#define GetWeatherDetailMethod @"get_weather_info"
+
+
+//获取过闸信息列表//获取12个闸口显示
+#define GetPlaceList [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define GetPlaceListMethod @"get_lock_name_list"
+
+//获取定位船名搜索历史记录
+#define GetHistoryList [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define GetHistoryListMethod @"get_record_list"
+
+//添加记录   Uid  name
+#define AddRecord [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define AddRecordMethod @"add_record"
+
+//查询当天某船舶的过闸情况   name
+#define SearchShipLockByNameMethod @"search_ship_lock_by_name"
+
+//#define GetPlaceListMethod @"get_info_by_lock_name"
+
+//根据船名获取船舶列表   ship_name
+#define GetListByShipName [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define GetListByShipNameMethod @"get_list_by_ship_name"
+
+
+//获取闸口当天详情   place
+#define GetInfoByLockName [NSString stringWithFormat:@"%@Assistant",BaseURL]
+#define GetInfoByLockNameMethod @"get_info_by_lock_name"
+
+
+// 监控接口
+#define MonitorClass [NSString stringWithFormat:@"%@Monitor",BaseURL]
+//是否有监控
+#define GetMonitorListMethod @"get_monitor_list"
+#define CheckMonitorRights @"check_monitor_rights"
+#define CheckMonitorCodeMethod @"check_monitor_code"
+
+//获取船舶位置
+#define GetShipPosition [NSString stringWithFormat:@"%@Ship",BaseURL]
+#define GetShipPositionMethod @"get_ship_position"
+//获取轨迹
+#define QueryShipTrack @"query_ship_track"
+
+#define QueryShipByName @"query_ship_by_name"
+
+#define GetShipInfoMethod @"get_ship"
+
+
+
+//运单流水
+#define TransportDeal [NSString stringWithFormat:@"%@Deal",BaseURL]
+#define TransportDealMethod @"order_flow"
+
+//支付履约保证金
+#define PayBondMethod @"payment_bond"
+//支付预付/结算运费
+#define payment_freight @"payment_freight"
+//评价对方
+#define EvaluateMethod @"evaluate"
+//上传发货/收货单
+#define Upload_invoiceMethod @"upload_invoice"
+//上传合同
+#define sign_contract @"sign_contract"
+
+
+
+//开始填写投保信息   操作者uid 来源source
+#define StartInsurance [NSString stringWithFormat:@"%@Insurance",BaseURL]
+#define StartInsuranceMethod @"start_insurance"
+
+//获取最近的投保人的信息列表  access_token   max    最多显示的记录数量
+#define GetRecentInsuranceUserListMethod @"get_recent_insurance_user_list"
+//保存投保信息 id    保单id    holder_name投保人    contact_person联系人   contact_phone联系电话 recognizee_name被投保人
+#define SaveHolderInfoMethod @"save_holder_info"
+
+//获取保险信息   insurance_id    保单id    access_token
+#define GetInsuranceMethod @"get_insurance"
+//判断保险的信息是否正确   id    保单id
+#define CheckInsuranceParamByIdMethod @"check_insurance_param_by_id"
+
+//获取子分类列表    main_code_id
+#define GetSubCodeListMethod @"get_sub_code_list"
+
+#define SaveGoodsInfoMethod @"save_goods_info"
+
+//获取某人的邮寄公司列表  uid
+#define GetEcListMethod @"get_ec_list"
+
+//邮寄公司列表
+#define GetExpressTypeListMethod @"get_express_type_list"
+
+//获得省级别的列表
+#define GetProvinceListMethod @"get_province_list"
+//获得市级别的列表(province_id)
+#define GetCityListByProvinceIdMethod @"get_city_list_by_province_id"
+//获得区级别的列表  city_id
+#define GetAreaListByCityIdMethod @"get_area_list_by_city_id"
+
+//获取主分类列表
+#define GetMainCodeListMethod @"get_main_code_list"
+//获取子分类列表    main_code_id
+#define GetSubCodeListMethod @"get_sub_code_list"
+
+
+#define SaveTransportInfoMethod @"save_transport_info"
+
+#define GetUnitList [NSString stringWithFormat:@"%@Data",BaseURL]
+#define GetUnitListMethod @"get_unit_list"
+
+#define GetShipAgeListMethod @"get_ship_age_list"
+
+//邮寄地址详情    id is_current uid  id为空时，获取默认地址或者最古老的数据
+#define GetMailAddressInfoMethod @"get_mail_address_info"
+//保费信息保存   id    保单id   insured_amount_fee    保费
+#define SaveInsuranceInfoMethod @"save_insurance_info"
+
+//根据省级和邮寄公司获得邮费   address    省级名称   ec_id    邮寄公司id  address_detail1    省市区信息 address_detail2 详细地址 uid
+#define GetFeeWithAddressEcMethod @"get_fee_with_address_ec"
+
+//计算价格 fee    保费 has_invoice    是否需要发票  s_code    货物种类小类  ship_age_type    船龄
+#define CalPriceMethod @"cal_price"
+
+
+//删除发票    insurance_id    保单id  Access_token
+#define DeleteVoiceMethod @"delete_voice"
+
+
+
+//添加修改发票信息   insurance_id    保单id     为空代表增加 title    抬头 recipient    收件人 recipient_mobile    收件人号码 recipient_address    所在区域 fee    运费 address_detail    详情地址 ec_id    邮寄公司ID
+#define SetInvoiceMethod @"set_invoice"
+
+//增加邮寄地址      title    抬头  addressee    收件人 mobile    电话 address    所在区域 detail_address    详细地址 expresscompany    快递公司id invoice_fee    邮费 is_current    默认（Y,N） access_token
+#define AddMailAddressMethod @"add_mail_address"
+
+//修改邮寄地址       id    id      title    抬头  addressee    收件人 mobile    电话 address    所在区域 detail_address    详细地址 expresscompany    快递公司id invoice_fee    邮费 is_current    默认（Y,N） access_token
+#define UpdateMailAddressMethod @"Update_Mail_address"
+
+
+//删除邮寄地址    id      Access_token
+#define DeleteMailAddressMethod @"delete_mail_address"
+
+//获取我的保单  access_token paid_status    支付状态  current_max    跟max一致  page    页数  max    最大值
+#define GetInsuranceListByUserIdMethod @"get_insurance_list_by_user_id"
+
+//删除保单    insurance_id    保单id  Access_token
+#define DeleteInsuranceMethod @"delete_insurance"
+
+//再次提交保单     Access_token  insurance_id    保单id
+#define ResubmitInsuranceMethod @"resubmit_insurance"
+
+//用户提交保单
+#define ChangeMethod @"change"
+
+
+
+
+
+
+
+
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
+#import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
+#import <BaiduMapAPI_Cloud/BMKCloudSearchComponent.h>//引入云检索功能所有的头文件
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
+#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>//引入计算工具所有的头文件
+#import <BaiduMapAPI_Radar/BMKRadarComponent.h>//引入周边雷达功能所有的头文件
+#import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
+
+
+
